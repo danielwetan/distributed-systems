@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  nats:
+    image: nats:latest
+    command: --js # enable nats jetstream
+    ports:
+          - 8222:8222 # http monitor
+          - 4222:4222 # client connections
+          - 6222:6222 # route connections
+    networks: ["nats"]
+
+networks:
+  nats:
+    name: nats
